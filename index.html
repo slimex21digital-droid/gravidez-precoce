@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gravidez Precoce e Abandono Escolar | Informação e Prevenção</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#070914;
+    color:#fff;
+    line-height:1.7;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 7%;
+
+    background:rgba(7,9,20,.82);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-family:Poppins;
+    font-size:21px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#ff4f91;
+}
+
+nav ul{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#ff4f91;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+
+    padding:130px 7% 80px;
+
+    background:
+    radial-gradient(circle at 80% 20%,rgba(255,79,145,.28),transparent 30%),
+    radial-gradient(circle at 20% 80%,rgba(124,58,237,.22),transparent 35%),
+    linear-gradient(135deg,#070914,#11152d);
+}
+
+.hero-content{
+    max-width:800px;
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-block;
+    padding:9px 17px;
+    border-radius:50px;
+
+    color:#ff9fc2;
+    background:rgba(255,79,145,.10);
+    border:1px solid rgba(255,79,145,.4);
+
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1.5px;
+
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-family:Poppins;
+    font-size:clamp(42px,7vw,80px);
+    line-height:1;
+    letter-spacing:-3px;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    background:linear-gradient(90deg,#ff4f91,#a78bfa);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:#b9bfd1;
+    font-size:18px;
+    max-width:700px;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.btn{
+    text-decoration:none;
+    padding:15px 25px;
+    border-radius:50px;
+    font-weight:800;
+    transition:.3s;
+    display:inline-block;
+}
+
+.primary{
+    background:linear-gradient(135deg,#ff4f91,#c026d3);
+    color:#fff;
+    box-shadow:0 15px 40px rgba(255,79,145,.25);
+}
+
+.primary:hover{
+    transform:translateY(-4px);
+}
+
+.secondary{
+    color:white;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.05);
+}
+
+.secondary:hover{
+    background:rgba(255,255,255,.1);
+}
+
+section{
+    padding:100px 7%;
+}
+
+.section-title{
+    max-width:800px;
+    margin-bottom:55px;
+}
+
+.tag{
+    color:#ff4f91;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:12px;
+}
+
+.section-title h2{
+    font-family:Poppins;
+    font-size:clamp(32px,5vw,52px);
+    line-height:1.1;
+    margin-bottom:18px;
+}
+
+.section-title p{
+    color:#9da4b9;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    padding:32px;
+    min-height:290px;
+
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.025)
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-9px);
+    border-color:rgba(255,79,145,.45);
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
+}
+
+.icon{
+    width:58px;
+    height:58px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:17px;
+    background:rgba(255,79,145,.12);
+
+    font-size:27px;
+    margin-bottom:22px;
+}
+
+.card h3{
+    font-size:21px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#9da4b9;
+}
+
+/* INTRO */
+
+.intro{
+    background:#0c1020;
+}
+
+.text-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
+.text-box h3{
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.text-box p{
+    color:#a5abbd;
+    margin-bottom:18px;
+}
+
+/* DATA */
+
+.data{
+    background:
+    linear-gradient(135deg,#17132c,#0c1020);
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.stat{
+    padding:38px 25px;
+    text-align:center;
+
+    border-radius:24px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.number{
+    font-family:Poppins;
+    font-size:48px;
+
+    background:linear-gradient(90deg,#ff4f91,#a78bfa);
+    -webkit-background-clip:text;
+    color:transparent;
+
+    margin-bottom:8px;
+}
+
+.stat p{
+    color:#aeb4c7;
+}
+
+.source{
+    margin-top:30px;
+    color:#777f96;
+    font-size:12px;
+}
+
+/* CAUSES */
+
+.causes{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.cause{
+    padding:30px;
+    background:#101426;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:22px;
+}
+
+.cause h3{
+    margin-bottom:10px;
+}
+
+.cause p{
+    color:#9da4b9;
+}
+
+.cause span{
+    display:block;
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+/* IMPACT */
+
+.impact-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.impact{
+    padding:32px;
+    border-radius:23px;
+    background:linear-gradient(145deg,#111629,#0c1020);
+    border:1px solid rgba(255,255,255,.07);
+}
+
+.impact h3{
+    margin-bottom:12px;
+}
+
+.impact p{
+    color:#9da4b9;
+}
+
+/* PREVENTION */
+
+.prevention{
+    background:#0c1020;
+}
+
+.steps{
+    max-width:900px;
+}
+
+.step{
+    display:flex;
+    gap:22px;
+    margin-bottom:28px;
+}
+
+.step-number{
+    min-width:55px;
+    height:55px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#ff4f91,#7c3aed);
+
+    font-weight:800;
+}
+
+.step-content h3{
+    margin-bottom:7px;
+}
+
+.step-content p{
+    color:#9da4b9;
+}
+
+/* SCHOOL */
+
+.school{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.school-box{
+    padding:35px;
+    border-radius:25px;
+
+    background:
+    linear-gradient(135deg,
+    rgba(255,79,145,.12),
+    rgba(124,58,237,.08));
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.school-box h3{
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.school-box p{
+    color:#a5abbd;
+}
+
+/* FAQ */
+
+.faq{
+    max-width:900px;
+    margin:auto;
+}
+
+details{
+    background:#101426;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:15px;
+    margin-bottom:15px;
+    padding:20px 24px;
+}
+
+summary{
+    cursor:pointer;
+    font-weight:700;
+}
+
+details p{
+    color:#9da4b9;
+    margin-top:15px;
+}
+
+/* MESSAGE */
+
+.cta{
+    text-align:center;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(255,79,145,.25),
+    transparent 55%),
+    #111426;
+}
+
+.cta h2{
+    font-family:Poppins;
+    font-size:clamp(35px,6vw,60px);
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.cta p{
+    max-width:750px;
+    margin:auto;
+    color:#aeb4c7;
+    margin-bottom:30px;
+}
+
+/* FOOTER */
+
+footer{
+    padding:35px 7%;
+    text-align:center;
+    color:#737b91;
+    font-size:13px;
+    border-top:1px solid rgba(255,255,255,.07);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    nav ul{
+        display:none;
+    }
+
+    .cards,
+    .stats,
+    .text-grid,
+    .causes,
+    .impact-grid,
+    .school{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:75px 6%;
+    }
+
+    .hero{
+        padding:120px 6% 70px;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:43px;
+        letter-spacing:-2px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section-title h2{
+        font-size:34px;
+    }
+
+    .card{
+        padding:27px;
+    }
+
+    .step{
+        gap:15px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+
+<nav>
+
+<div class="logo">
+    Juventude<span>.</span>
+</div>
+
+<ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#dados">Dados</a></li>
+    <li><a href="#causas">Causas</a></li>
+    <li><a href="#impactos">Impactos</a></li>
+    <li><a href="#prevencao">Prevenção</a></li>
+    <li><a href="#faq">FAQ</a></li>
+</ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="badge">
+EDUCAÇÃO • SAÚDE • PREVENÇÃO
+</div>
+
+<h1>
+Gravidez precoce
+e <span>abandono escolar.</span>
+</h1>
+
+<p>
+Uma página informativa para compreender as causas, os impactos
+e as formas de prevenção da gravidez na adolescência e do
+abandono escolar.
+</p>
+
+<div class="buttons">
+
+<a href="#sobre" class="btn primary">
+Explorar informação →
+</a>
+
+<a href="#prevencao" class="btn secondary">
+Como prevenir
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SOBRE -->
+
+<section id="sobre" class="intro">
+
+<div class="section-title">
+
+<div class="tag">
+01 — INTRODUÇÃO
+</div>
+
+<h2>
+Por que este assunto merece atenção?
+</h2>
+
+<p>
+A adolescência é uma fase de grandes mudanças físicas, emocionais
+e sociais. Uma gravidez nessa fase pode alterar planos de estudo,
+trabalho e vida familiar.
+</p>
+
+</div>
+
+
+<div class="text-grid">
+
+<div class="text-box">
+
+<h3>
+🤰 Gravidez precoce
+</h3>
+
+<p>
+A gravidez na adolescência pode acontecer por diferentes razões,
+incluindo falta de informação, dificuldades de acesso a serviços
+de saúde, pressão social, violência sexual, uniões prematuras e
+desigualdades económicas.
+</p>
+
+<p>
+A Organização Mundial da Saúde destaca que a gravidez na adolescência
+está associada a consequências de saúde, sociais e económicas e que
+as adolescentes enfrentam maiores riscos durante a gravidez e o parto
+do que mulheres adultas. :chatgpt-content-reference{index="1"}
+</p>
+
+</div>
+
+
+<div class="text-box">
+
+<h3>
+🎓 Abandono escolar
+</h3>
+
+<p>
+O abandono escolar acontece quando um estudante deixa de frequentar
+a escola antes de concluir o seu percurso de formação.
+</p>
+
+<p>
+A gravidez pode ser um dos fatores associados à interrupção dos
+estudos. Em Moçambique, pesquisas da UNICEF identificaram uma forte
+associação entre fatores de saúde reprodutiva e abandono escolar
+entre meninas. :chatgpt-content-reference{index="2"}
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- DADOS -->
+
+<section id="dados" class="data">
+
+<div class="section-title">
+
+<div class="tag">
+02 — DADOS
+</div>
+
+<h2>
+O que os dados mostram?
+</h2>
+
+<p>
+Conhecer a realidade ajuda a compreender a dimensão do problema
+e a importância da prevenção e do apoio.
+</p>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="number">
+36%
+</div>
+
+<p>
+das raparigas de 15–19 anos em Moçambique
+já estiveram grávidas, segundo uma ficha
+da UNICEF publicada em 2026.
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="number">
+48%
+</div>
+
+<p>
+das raparigas em Moçambique, segundo dados
+apresentados pela UNICEF, já tinham estado
+grávidas aos 18 anos.
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="number">
+70%
+</div>
+
+<p>
+das meninas grávidas acompanhadas numa
+avaliação citada pela UNICEF abandonaram
+a escola.
+</p>
+
+</div>
+
+</div>
+
+<p class="source">
+Fontes: UNICEF Moçambique e Organização Mundial da Saúde.
+Os números referem-se a diferentes estudos, anos e populações;
+não devem ser interpretados como uma única estatística.
+</p>
+
+</section>
+
+
+<!-- CAUSAS -->
+
+<section id="causas">
+
+<div class="section-title">
+
+<div class="tag">
+03 — CAUSAS
+</div>
+
+<h2>
+Quais são os principais fatores?
+</h2>
+
+<p>
+Não existe uma única causa. A gravidez precoce e o abandono escolar
+resultam frequentemente da combinação de vários fatores.
+</p>
+
+</div>
+
+
+<div class="causes">
+
+<div class="cause">
+
+<span>📚</span>
+
+<h3>
+Falta de informação
+</h3>
+
+<p>
+A ausência de educação adequada sobre saúde sexual e reprodutiva
+pode dificultar a tomada de decisões informadas.
+</p>
+
+</div>
+
+
+<div class="cause">
+
+<span>💰</span>
+
+<h3>
+Dificuldades económicas
+</h3>
+
+<p>
+A pobreza pode aumentar as barreiras ao acesso à escola, aos serviços
+de saúde e a outras oportunidades.
+</p>
+
+</div>
+
+
+<div class="cause">
+
+<span>💍</span>
+
+<h3>
+Uniões prematuras
+</h3>
+
+<p>
+Uniões e casamentos precoces podem aumentar o risco de gravidez
+e dificultar a continuidade da educação.
+</p>
+
+</div>
+
+
+<div class="cause">
+
+<span>⚠️</span>
+
+<h3>
+Violência e coerção
+</h3>
+
+<p>
+Violência sexual e relações sem consentimento também podem resultar
+em gravidez e exigem proteção e apoio especializado.
+</p>
+
+</div>
+
+
+<div class="cause">
+
+<span>🏫</span>
+
+<h3>
+Barreiras na escola
+</h3>
+
+<p>
+Estigma, discriminação, falta de apoio e dificuldades para conciliar
+maternidade e estudos podem afastar adolescentes da escola.
+</p>
+
+</div>
+
+
+<div class="cause">
+
+<span>👨‍👩‍👧</span>
+
+<h3>
+Falta de apoio familiar
+</h3>
+
+<p>
+Quando adolescentes não encontram pessoas de confiança para conversar
+e pedir ajuda, podem enfrentar os desafios de forma isolada.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- IMPACTOS -->
+
+<section id="impactos" class="intro">
+
+<div class="section-title">
+
+<div class="tag">
+04 — IMPACTOS
+</div>
+
+<h2>
+Quais podem ser as consequências?
+</h2>
+
+<p>
+Os efeitos podem atingir a saúde, a educação, a vida económica,
+as relações familiares e as oportunidades futuras.
+</p>
+
+</div>
+
+
+<div class="impact-grid">
+
+<div class="impact">
+
+<h3>
+🩺 Saúde
+</h3>
+
+<p>
+Adolescentes grávidas apresentam maior risco de algumas complicações
+durante a gravidez e o parto. Os bebés também podem apresentar riscos
+maiores de nascimento prematuro e baixo peso. :chatgpt-content-reference{index="3"}
+</p>
+
+</div>
+
+
+<div class="impact">
+
+<h3>
+🎓 Educação
+</h3>
+
+<p>
+A gravidez pode interromper a frequência escolar. A UNICEF destaca
+que muitas meninas grávidas enfrentam pressão para abandonar a escola,
+afetando a formação e as oportunidades futuras. :chatgpt-content-reference{index="4"}
+</p>
+
+</div>
+
+
+<div class="impact">
+
+<h3>
+💼 Futuro profissional
+</h3>
+
+<p>
+A interrupção dos estudos pode dificultar o acesso à formação
+profissional e a oportunidades de emprego.
+</p>
+
+</div>
+
+
+<div class="impact">
+
+<h3>
+🧠 Saúde emocional
+</h3>
+
+<p>
+Estigma, rejeição, pressão familiar e isolamento podem tornar
+a experiência ainda mais difícil para uma adolescente.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ESCOLA -->
+
+<section>
+
+<div class="section-title">
+
+<div class="tag">
+05 — EDUCAÇÃO
+</div>
+
+<h2>
+Gravidez não deve significar o fim da educação.
+</h2>
+
+<p>
+Uma adolescente grávida ou que já é mãe continua a ter capacidade
+de aprender, desenvolver competências e construir o seu futuro.
+</p>
+
+</div>
+
+
+<div class="school">
+
+<div class="school-box">
+
+<h3>
+🏫 A escola pode ajudar
+</h3>
+
+<p>
+Escolas podem contribuir criando ambientes seguros, combatendo
+o estigma, orientando estudantes e facilitando o acesso a serviços
+de apoio quando necessário.
+</p>
+
+</div>
+
+
+<div class="school-box">
+
+<h3>
+🔄 O retorno aos estudos é importante
+</h3>
+
+<p>
+Programas de apoio e políticas de permanência ou retorno podem
+ajudar mães adolescentes a continuar a sua formação.
+A UNICEF defende que a gravidez não deve resultar em exclusão
+permanente da escola. :chatgpt-content-reference{index="5"}
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PREVENÇÃO -->
+
+<section id="prevencao" class="prevention">
+
+<div class="section-title">
+
+<div class="tag">
+06 — PREVENÇÃO
+</div>
+
+<h2>
+Como podemos prevenir?
+</h2>
+
+<p>
+A prevenção depende de informação, diálogo, serviços acessíveis,
+proteção e apoio.
+</p>
+
+</div>
+
+
+<div class="steps">
+
+<div class="step">
+
+<div class="step-number">
+01
+</div>
+
+<div class="step-content">
+
+<h3>
+Educação e informação
+</h3>
+
+<p>
+Promover educação adequada à idade sobre saúde, relacionamentos,
+consentimento, responsabilidades e prevenção da gravidez.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+02
+</div>
+
+<div class="step-content">
+
+<h3>
+Acesso a serviços de saúde
+</h3>
+
+<p>
+Adolescentes devem poder procurar profissionais de saúde e receber
+informação e orientação adequada sobre saúde sexual e reprodutiva.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+03
+</div>
+
+<div class="step-content">
+
+<h3>
+Combater uniões prematuras
+</h3>
+
+<p>
+A proteção contra uniões e casamentos prematuros é importante
+para manter meninas na escola e proteger os seus direitos.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+04
+</div>
+
+<div class="step-content">
+
+<h3>
+Apoio da família
+</h3>
+
+<p>
+Pais, responsáveis e familiares podem criar um ambiente onde
+adolescentes consigam fazer perguntas e procurar ajuda sem medo.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+05
+</div>
+
+<div class="step-content">
+
+<h3>
+Apoio da escola
+</h3>
+
+<p>
+Professores e escolas podem identificar situações de risco,
+encaminhar estudantes para serviços apropriados e ajudar a
+manter a ligação com a educação.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section id="faq">
+
+<div class="section-title">
+
+<div class="tag">
+07 — PERGUNTAS FREQUENTES
+</div>
+
+<h2>
+Perguntas importantes
+</h2>
+
+</div>
+
+
+<div class="faq">
+
+<details>
+
+<summary>
+A gravidez precoce significa necessariamente abandonar a escola?
+</summary>
+
+<p>
+Não. A gravidez pode criar dificuldades para continuar os estudos,
+mas políticas de apoio, acolhimento e retorno à escola podem ajudar
+a adolescente a continuar a sua formação.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+A gravidez na adolescência acontece por uma única razão?
+</summary>
+
+<p>
+Não. Existem vários fatores possíveis, incluindo desigualdade,
+falta de informação, acesso limitado a serviços, uniões prematuras,
+pressão social e violência sexual.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Como a família pode ajudar?
+</summary>
+
+<p>
+Escutar sem julgamento, oferecer apoio emocional, incentivar
+a continuidade dos estudos e procurar serviços profissionais
+quando necessário são atitudes importantes.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Uma adolescente grávida pode continuar a estudar?
+</summary>
+
+<p>
+Sim. A gravidez não elimina a capacidade ou o direito de uma
+adolescente continuar a sua educação. O apoio da família, da escola
+e da comunidade pode ser decisivo.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Onde procurar ajuda?
+</summary>
+
+<p>
+Procure uma unidade de saúde, escola, professor, conselheiro,
+assistente social ou outro adulto de confiança. Em situações
+de violência ou abuso, procure imediatamente serviços de proteção
+e apoio existentes na sua comunidade.
+</p>
+
+</details>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="tag">
+08 — MENSAGEM FINAL
+</div>
+
+<h2>
+Informação pode mudar uma vida.
+</h2>
+
+<p>
+Prevenir a gravidez precoce e reduzir o abandono escolar exige
+responsabilidade partilhada. Adolescentes precisam de informação,
+proteção, educação, saúde e apoio para construir os seus projetos
+de vida.
+</p>
+
+<a href="#sobre" class="btn primary">
+Voltar ao início ↑
+</a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+<strong>Juventude.</strong>
+Educação • Saúde • Prevenção • Futuro
+</p>
+
+<p style="margin-top:10px;">
+Página informativa — 2026
+</p>
+
+</footer>
+
+</body>
+</html>
