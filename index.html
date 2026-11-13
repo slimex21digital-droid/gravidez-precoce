@@ -1,985 +1,695 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gravidez Precoce & Abandono Escolar</title>
+  <title>Gravidez Precoce & Abandono Escolar</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
-/* =========================
-   RESET
-========================= */
+  <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Inter',sans-serif;
-    background:#070914;
-    color:#fff;
-    overflow-x:hidden;
-}
-
-img{
-    max-width:100%;
-    display:block;
-}
-
-/* =========================
-   ANIMAÇÕES
-========================= */
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(50px);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-@keyframes floating{
-    0%,100%{
-        transform:translateY(0);
+    html {
+      scroll-behavior: smooth;
     }
 
-    50%{
-        transform:translateY(-12px);
-    }
-}
-
-@keyframes pulse{
-    0%{
-        box-shadow:0 0 0 0 rgba(255,79,145,.5);
+    body {
+      font-family: "Inter", sans-serif;
+      background: #080b18;
+      color: #fff;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    70%{
-        box-shadow:0 0 0 20px rgba(255,79,145,0);
+    body::before {
+      content: "";
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: #8b5cf6;
+      filter: blur(180px);
+      opacity: .12;
+      top: -200px;
+      left: -200px;
+      z-index: -1;
     }
 
-    100%{
-        box-shadow:0 0 0 0 rgba(255,79,145,0);
+    body::after {
+      content: "";
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: #ec4899;
+      filter: blur(180px);
+      opacity: .10;
+      bottom: -200px;
+      right: -200px;
+      z-index: -1;
     }
-}
 
-@keyframes gradientMove{
-    0%{
-        background-position:0% 50%;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    50%{
-        background-position:100% 50%;
+    .container {
+      width: 90%;
+      max-width: 1180px;
+      margin: auto;
     }
 
-    100%{
-        background-position:0% 50%;
+    /* NAVBAR */
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 18px 0;
+      background: rgba(8, 11, 24, .78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
-}
 
-/* =========================
-   NAV
-========================= */
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:999;
+    .logo {
+      font-family: "Poppins", sans-serif;
+      font-size: 20px;
+      font-weight: 800;
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:18px 7%;
-
-    background:rgba(7,9,20,.78);
-    backdrop-filter:blur(18px);
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.logo{
-    font-family:'Poppins';
-    font-size:21px;
-    font-weight:800;
-}
-
-.logo span{
-    color:#ff4f91;
-}
-
-nav ul{
-    display:flex;
-    gap:28px;
-    list-style:none;
-}
-
-nav a{
-    color:#fff;
-    text-decoration:none;
-    font-size:13px;
-    font-weight:700;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#ff4f91;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    min-height:100vh;
-
-    display:flex;
-    align-items:center;
-
-    position:relative;
-    overflow:hidden;
-
-    padding:140px 7% 90px;
-
-    background:
-    radial-gradient(
-        circle at 80% 25%,
-        rgba(255,79,145,.28),
-        transparent 30%
-    ),
-
-    radial-gradient(
-        circle at 15% 80%,
-        rgba(124,58,237,.22),
-        transparent 35%
-    ),
-
-    linear-gradient(135deg,#070914,#11152d);
-}
-
-.hero-content{
-    max-width:760px;
-    position:relative;
-    z-index:2;
-
-    animation:fadeUp 1s ease;
-}
-
-.badge{
-    display:inline-block;
-
-    padding:9px 17px;
-
-    border-radius:50px;
-
-    background:rgba(255,79,145,.10);
-    border:1px solid rgba(255,79,145,.45);
-
-    color:#ff9fc2;
-
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:2px;
-
-    margin-bottom:25px;
-}
-
-.hero h1{
-    font-family:'Poppins';
-
-    font-size:clamp(42px,7vw,80px);
-
-    line-height:.98;
-
-    letter-spacing:-3px;
-
-    margin-bottom:25px;
-}
-
-.hero h1 span{
-    background:
-    linear-gradient(
+      background: linear-gradient(
         90deg,
-        #ff4f91,
-        #c026d3,
-        #8b5cf6
-    );
+        #a78bfa,
+        #f472b6,
+        #fb7185
+      );
 
-    background-size:200% 200%;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
 
-    -webkit-background-clip:text;
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
 
-    color:transparent;
+    .nav-links a {
+      color: #d8d9e5;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .3s;
+    }
 
-    animation:gradientMove 4s ease infinite;
-}
+    .nav-links a:hover {
+      color: #f472b6;
+    }
 
-.hero p{
-    color:#b9bfd1;
+    /* HERO */
 
-    font-size:18px;
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 70px;
+    }
 
-    line-height:1.8;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 55px;
+      align-items: center;
+    }
 
-    max-width:690px;
+    .badge {
+      display: inline-block;
+      padding: 8px 15px;
+      border: 1px solid rgba(244,114,182,.35);
+      border-radius: 999px;
+      color: #f9a8d4;
+      background: rgba(236,72,153,.08);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      animation: pulse 2.5s infinite;
+    }
 
-    margin-bottom:35px;
-}
+    h1 {
+      font-family: "Poppins", sans-serif;
+      font-size: clamp(40px, 6vw, 75px);
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
 
-.buttons{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-}
+    .gradient-text {
+      background: linear-gradient(
+        90deg,
+        #a78bfa,
+        #f472b6,
+        #fb7185
+      );
 
-.btn{
-    display:inline-block;
+      background-size: 200% auto;
 
-    padding:15px 25px;
+      -webkit-background-clip: text;
+      color: transparent;
 
-    border-radius:50px;
+      animation: gradientMove 4s linear infinite;
+    }
 
-    text-decoration:none;
+    .hero p {
+      color: #c9cad6;
+      max-width: 650px;
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
 
-    font-weight:800;
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-weight: 800;
 
-    transition:.3s;
-}
-
-.primary{
-    color:white;
-
-    background:
-    linear-gradient(
+      background: linear-gradient(
         135deg,
-        #ff4f91,
-        #c026d3
-    );
+        #8b5cf6,
+        #ec4899
+      );
 
-    box-shadow:
-    0 15px 40px rgba(255,79,145,.25);
-}
+      box-shadow: 0 10px 35px rgba(236,72,153,.25);
+      transition: .35s;
+    }
 
-.primary:hover{
-    transform:translateY(-5px) scale(1.02);
-}
+    .btn:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 15px 45px rgba(236,72,153,.4);
+    }
 
-.secondary{
-    color:white;
+    .hero-image {
+      position: relative;
+      animation: float 5s ease-in-out infinite;
+    }
 
-    border:1px solid rgba(255,255,255,.15);
+    .hero-image img {
+      width: 100%;
+      max-height: 560px;
+      object-fit: cover;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 30px 90px rgba(0,0,0,.5);
+    }
 
-    background:rgba(255,255,255,.05);
-}
+    /* SECTIONS */
 
-.secondary:hover{
-    background:rgba(255,255,255,.1);
-}
+    section {
+      padding: 100px 0;
+    }
 
-/* HERO IMAGE */
+    .section-title {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 55px;
+    }
 
-.hero-image{
-    position:absolute;
+    .section-title span {
+      color: #f472b6;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
 
-    right:7%;
-    bottom:0;
+    .section-title h2 {
+      font-family: "Poppins", sans-serif;
+      font-size: clamp(30px, 4vw, 48px);
+      margin: 10px 0;
+    }
 
-    width:390px;
+    .section-title p {
+      color: #aeb0c0;
+    }
 
-    animation:floating 4s ease-in-out infinite;
+    /* CARDS */
 
-    filter:
-    drop-shadow(
-        0 30px 50px rgba(0,0,0,.5)
-    );
-}
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 22px;
+    }
 
-.hero-image img{
-    width:100%;
+    .card {
+      padding: 28px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.08);
+      transition: .4s;
+      position: relative;
+      overflow: hidden;
+    }
 
-    border-radius:30px 30px 0 0;
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: #8b5cf6;
+      filter: blur(80px);
+      opacity: .15;
+      top: -50px;
+      right: -50px;
+    }
 
-    border:1px solid rgba(255,255,255,.12);
-}
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(244,114,182,.45);
+      box-shadow: 0 20px 50px rgba(0,0,0,.3);
+    }
 
-/* =========================
-   SEÇÕES
-========================= */
+    .icon {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
 
-section{
-    padding:100px 7%;
-}
+    .card h3 {
+      margin-bottom: 10px;
+      font-family: "Poppins", sans-serif;
+    }
 
-.section-header{
-    max-width:800px;
-    margin-bottom:55px;
-}
+    .card p {
+      color: #b9bbc8;
+      font-size: 15px;
+    }
 
-.tag{
-    color:#ff4f91;
+    /* GALERIA */
 
-    font-size:11px;
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 20px;
+    }
 
-    font-weight:800;
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      min-height: 300px;
+      border: 1px solid rgba(255,255,255,.1);
+    }
 
-    letter-spacing:2px;
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      object-fit: cover;
+      display: block;
+      transition: .6s;
+    }
 
-    margin-bottom:12px;
-}
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
 
-.section-header h2{
-    font-family:'Poppins';
+    .gallery-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        transparent 45%,
+        rgba(0,0,0,.65)
+      );
+    }
 
-    font-size:clamp(32px,5vw,52px);
+    .gallery-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      z-index: 2;
+      font-weight: 800;
+      font-size: 18px;
+    }
 
-    line-height:1.1;
+    /* IMPACTOS */
 
-    margin-bottom:18px;
-}
+    .impact {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 18px;
+    }
 
-.section-header p{
-    color:#9da4b9;
-}
+    .impact-box {
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 18px;
 
-/* =========================
-   SOBRE
-========================= */
-
-.about{
-    background:#0b0e1c;
-}
-
-.cards{
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:22px;
-}
-
-.card{
-    padding:32px;
-
-    min-height:280px;
-
-    border-radius:24px;
-
-    background:
-    linear-gradient(
+      background: linear-gradient(
         145deg,
-        rgba(255,255,255,.08),
-        rgba(255,255,255,.025)
-    );
+        rgba(139,92,246,.12),
+        rgba(236,72,153,.06)
+      );
 
-    border:1px solid rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.08);
+    }
 
-    transition:.4s;
-}
+    .impact-box strong {
+      display: block;
+      font-size: 28px;
+      color: #f9a8d4;
+      margin-bottom: 5px;
+    }
 
-.card:hover{
-    transform:
-    translateY(-10px)
-    rotateX(2deg);
+    .impact-box span {
+      color: #c3c4cf;
+      font-size: 13px;
+    }
 
-    border-color:
-    rgba(255,79,145,.5);
+    /* PREVENÇÃO */
 
-    box-shadow:
-    0 25px 60px rgba(0,0,0,.3);
-}
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
 
-.icon{
-    width:60px;
-    height:60px;
+    .step {
+      padding: 30px;
+      background: rgba(255,255,255,.04);
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.08);
+      transition: .35s;
+    }
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    .step:hover {
+      transform: translateY(-8px);
+      border-color: rgba(244,114,182,.35);
+    }
 
-    border-radius:18px;
+    .number {
+      width: 45px;
+      height: 45px;
 
-    background:
-    rgba(255,79,145,.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    font-size:27px;
+      border-radius: 50%;
 
-    margin-bottom:22px;
-}
-
-.card h3{
-    font-size:21px;
-    margin-bottom:12px;
-}
-
-.card p{
-    color:#9da4b9;
-    line-height:1.7;
-}
-
-/* =========================
-   GALERIA
-========================= */
-
-.gallery{
-    background:
-    linear-gradient(
+      background: linear-gradient(
         135deg,
-        #111426,
-        #090b17
-    );
-}
-
-.gallery-grid{
-    display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:18px;
-}
-
-.photo{
-    position:relative;
-    overflow:hidden;
-
-    border-radius:24px;
-
-    height:390px;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    transition:.5s;
-}
-
-.photo:nth-child(even){
-    transform:translateY(30px);
-}
-
-.photo img{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    transition:.7s;
-}
-
-.photo::after{
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-    linear-gradient(
-        to top,
-        rgba(0,0,0,.65),
-        transparent 60%
-    );
-}
-
-.photo:hover{
-    transform:
-    translateY(-10px)
-    scale(1.02);
-}
-
-.photo:hover img{
-    transform:scale(1.08);
-}
-
-.photo-label{
-    position:absolute;
-
-    left:20px;
-    bottom:20px;
-
-    z-index:2;
-
-    font-weight:800;
-}
-
-/* =========================
-   CAUSAS
-========================= */
-
-.causes{
-    display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:20px;
-}
-
-.cause{
-    padding:30px;
-
-    border-radius:22px;
-
-    background:#101426;
-
-    border:
-    1px solid rgba(255,255,255,.07);
-
-    transition:.3s;
-}
-
-.cause:hover{
-    border-color:
-    rgba(255,79,145,.4);
-
-    transform:translateX(5px);
-}
-
-.cause-icon{
-    font-size:30px;
-    margin-bottom:12px;
-}
-
-.cause h3{
-    margin-bottom:10px;
-}
-
-.cause p{
-    color:#9da4b9;
-}
-
-/* =========================
-   IMPACTOS
-========================= */
-
-.impacts{
-    background:#0c1020;
-}
-
-.impact-grid{
-    display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:18px;
-}
-
-.impact{
-    padding:30px 22px;
-
-    border-radius:20px;
-
-    background:
-    rgba(255,255,255,.045);
-
-    border:1px solid rgba(255,255,255,.07);
-
-    transition:.35s;
-}
-
-.impact:hover{
-    transform:translateY(-8px);
-}
-
-.impact-number{
-    font-family:'Poppins';
-
-    font-size:38px;
-
-    color:#ff4f91;
-
-    margin-bottom:10px;
-}
-
-.impact h3{
-    margin-bottom:10px;
-}
-
-.impact p{
-    color:#9da4b9;
-
-    font-size:14px;
-}
-
-/* =========================
-   PREVENÇÃO
-========================= */
-
-.prevention{
-    background:
-    radial-gradient(
-        circle at 80% 50%,
-        rgba(124,58,237,.15),
-        transparent 35%
-    ),
-    #080b16;
-}
-
-.steps{
-    max-width:900px;
-}
-
-.step{
-    display:flex;
-
-    gap:22px;
-
-    margin-bottom:30px;
-
-    padding:25px;
-
-    border-radius:20px;
-
-    background:
-    rgba(255,255,255,.04);
-
-    border:1px solid rgba(255,255,255,.06);
-
-    transition:.35s;
-}
-
-.step:hover{
-    transform:translateX(8px);
-
-    border-color:
-    rgba(255,79,145,.35);
-}
-
-.step-number{
-    min-width:52px;
-    height:52px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:
-    linear-gradient(
+        #8b5cf6,
+        #ec4899
+      );
+
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .step h3 {
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      color: #b8bac8;
+      font-size: 14px;
+    }
+
+    /* ALERTA */
+
+    .warning {
+      padding: 55px 30px;
+      border-radius: 28px;
+      text-align: center;
+
+      background: linear-gradient(
         135deg,
-        #ff4f91,
-        #7c3aed
-    );
+        rgba(236,72,153,.14),
+        rgba(139,92,246,.13)
+      );
 
-    font-weight:800;
-}
+      border: 1px solid rgba(244,114,182,.18);
+    }
 
-.step h3{
-    margin-bottom:7px;
-}
+    .warning h2 {
+      font-family: "Poppins", sans-serif;
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
 
-.step p{
-    color:#9da4b9;
-}
+    .warning p {
+      max-width: 750px;
+      margin: auto;
+      color: #c7c8d3;
+    }
 
-/* =========================
-   ESCOLA
-========================= */
+    /* CRIADORES */
 
-.school{
-    display:grid;
+    .creators {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
 
-    grid-template-columns:
-    1fr 1fr;
+    .creator {
+      padding: 22px;
+      border-radius: 18px;
 
-    gap:25px;
-}
-
-.school-box{
-    padding:40px;
-
-    border-radius:25px;
-
-    background:
-    linear-gradient(
+      background: linear-gradient(
         135deg,
-        rgba(255,79,145,.1),
-        rgba(124,58,237,.08)
-    );
+        rgba(139,92,246,.14),
+        rgba(236,72,153,.10)
+      );
 
-    border:1px solid rgba(255,255,255,.08);
-}
+      border: 1px solid rgba(244,114,182,.25);
 
-.school-box h3{
-    font-size:25px;
+      color: #fff;
 
-    margin-bottom:15px;
-}
+      font-weight: 800;
+      font-size: 15px;
 
-.school-box p{
-    color:#a5abbd;
-}
+      transition: .35s;
 
-/* =========================
-   FAQ
-========================= */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
 
-.faq{
-    max-width:900px;
-    margin:auto;
-}
+    .creator:hover {
+      transform: translateY(-7px) scale(1.02);
 
-details{
-    background:#101426;
-
-    border:
-    1px solid rgba(255,255,255,.08);
-
-    border-radius:16px;
-
-    padding:20px 24px;
-
-    margin-bottom:15px;
-
-    transition:.3s;
-}
-
-details:hover{
-    border-color:
-    rgba(255,79,145,.35);
-}
-
-summary{
-    cursor:pointer;
-    font-weight:800;
-}
-
-details p{
-    color:#9da4b9;
-    margin-top:15px;
-}
-
-/* =========================
-   CRIADORES
-========================= */
-
-.creators{
-    background:
-    linear-gradient(
+      background: linear-gradient(
         135deg,
-        #151127,
-        #090b17
-    );
+        #8b5cf6,
+        #ec4899
+      );
 
-    text-align:center;
-}
-
-.creator-list{
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:15px;
-
-    max-width:900px;
-
-    margin:auto;
-}
-
-.creator{
-    padding:15px 22px;
-
-    border-radius:50px;
-
-    background:
-    rgba(255,255,255,.06);
-
-    border:
-    1px solid rgba(255,255,255,.1);
-
-    color:#fff;
-
-    font-weight:700;
-
-    transition:.3s;
-}
-
-.creator:hover{
-    transform:
-    translateY(-5px);
-
-    background:
-    rgba(255,79,145,.15);
-
-    border-color:#ff4f91;
-}
-
-/* =========================
-   CTA
-========================= */
-
-.cta{
-    text-align:center;
-
-    background:
-    radial-gradient(
-        circle at center,
-        rgba(255,79,145,.25),
-        transparent 55%
-    ),
-    #111426;
-}
-
-.cta h2{
-    font-family:'Poppins';
-
-    font-size:
-    clamp(35px,6vw,60px);
-
-    line-height:1.1;
-
-    margin-bottom:20px;
-}
-
-.cta p{
-    max-width:750px;
-
-    margin:auto;
-
-    color:#aeb4c7;
-
-    margin-bottom:30px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    padding:35px 7%;
-
-    text-align:center;
-
-    color:#737b91;
-
-    font-size:13px;
-
-    border-top:
-    1px solid rgba(255,255,255,.07);
-}
-
-/* =========================
-   RESPONSIVO
-========================= */
-
-@media(max-width:1000px){
-
-    nav ul{
-        display:none;
+      box-shadow: 0 12px 35px rgba(236,72,153,.3);
     }
 
-    .hero-image{
-        opacity:.25;
-        width:350px;
-        right:-80px;
+    .creator span {
+      color: #f9a8d4;
+      font-size: 14px;
+      white-space: nowrap;
     }
 
-    .cards,
-    .gallery-grid,
-    .impact-grid{
-        grid-template-columns:
-        repeat(2,1fr);
+    .creator:hover span {
+      color: white;
     }
 
-    .causes,
-    .school{
-        grid-template-columns:1fr;
-    }
-}
+    /* FOOTER */
 
-@media(max-width:600px){
+    footer {
+      text-align: center;
+      padding: 40px 20px;
 
-    section{
-        padding:75px 6%;
-    }
+      border-top: 1px solid rgba(255,255,255,.07);
 
-    .hero{
-        padding:
-        120px 6%
-        70px;
+      color: #8f91a0;
+      font-size: 13px;
     }
 
-    .hero h1{
-        font-size:43px;
-        letter-spacing:-2px;
+    footer strong {
+      color: #cfd0da;
+      line-height: 2;
     }
 
-    .hero p{
-        font-size:16px;
+    /* ANIMAÇÕES */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 1s ease;
     }
 
-    .hero-image{
-        display:none;
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .cards,
-    .gallery-grid,
-    .impact-grid{
-        grid-template-columns:1fr;
+    @keyframes float {
+
+      0%,100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
     }
 
-    .photo{
-        height:420px;
+    @keyframes pulse {
+
+      0%,100% {
+        box-shadow: 0 0 0 0 rgba(244,114,182,.25);
+      }
+
+      50% {
+        box-shadow: 0 0 0 12px rgba(244,114,182,0);
+      }
     }
 
-    .photo:nth-child(even){
-        transform:none;
+    @keyframes gradientMove {
+
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
-    .step{
-        padding:20px;
+    /* RESPONSIVO */
+
+    @media(max-width:900px) {
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards,
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .impact {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .creators {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
-    .creator-list{
-        flex-direction:column;
+    @media(max-width:650px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 130px;
+      }
+
+      .cards,
+      .steps,
+      .impact,
+      .gallery,
+      .creators {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      h1 {
+        font-size: 43px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .creator {
+        flex-direction: row;
+      }
     }
 
-    .creator{
-        width:100%;
-    }
-}
+    @media(prefers-reduced-motion: reduce) {
 
-</style>
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+    }
+
+  </style>
 </head>
 
 <body>
 
 <!-- =========================
-     NAV
+     NAVBAR
 ========================= -->
 
 <nav>
 
-<div class="logo">
-    Juventude<span>.</span>
-</div>
+  <div class="container nav-content">
 
-<ul>
-    <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#galeria">Imagens</a></li>
-    <li><a href="#causas">Causas</a></li>
-    <li><a href="#impactos">Impactos</a></li>
-    <li><a href="#prevencao">Prevenção</a></li>
-    <li><a href="#faq">FAQ</a></li>
-</ul>
+    <div class="logo">
+      VIDA & FUTURO
+    </div>
+
+    <ul class="nav-links">
+
+      <li>
+        <a href="#inicio">Início</a>
+      </li>
+
+      <li>
+        <a href="#problema">Problema</a>
+      </li>
+
+      <li>
+        <a href="#impactos">Impactos</a>
+      </li>
+
+      <li>
+        <a href="#prevencao">Prevenção</a>
+      </li>
+
+      <li>
+        <a href="#criadores">Criadores</a>
+      </li>
+
+    </ul>
+
+  </div>
 
 </nav>
 
@@ -988,133 +698,136 @@ footer{
      HERO
 ========================= -->
 
-<section class="hero">
+<header class="hero" id="inicio">
 
-<div class="hero-content">
+  <div class="container hero-grid">
 
-<div class="badge">
-EDUCAÇÃO • SAÚDE • PREVENÇÃO
-</div>
+    <div class="reveal">
 
-<h1>
-Gravidez precoce
-e <span>abandono escolar.</span>
-</h1>
+      <span class="badge">
+        EDUCAÇÃO • PREVENÇÃO • FUTURO
+      </span>
 
-<p>
-Informação para compreender, prevenir e apoiar.
-Uma gravidez precoce pode trazer grandes desafios,
-mas o conhecimento e o apoio podem abrir novos caminhos.
-</p>
+      <h1>
+        Gravidez Precoce
+        <br>
+        & <span class="gradient-text">
+          Abandono Escolar
+        </span>
+      </h1>
 
-<div class="buttons">
+      <p>
+        Informação pode mudar decisões, proteger sonhos e abrir novas
+        oportunidades. A gravidez na adolescência pode trazer desafios
+        para a vida escolar, familiar, emocional e social.
+      </p>
 
-<a href="#sobre" class="btn primary">
-Começar a explorar →
-</a>
+      <a href="#problema" class="btn">
+        Explorar o tema →
+      </a>
 
-<a href="#prevencao" class="btn secondary">
-Ver prevenção
-</a>
-
-</div>
-
-</div>
+    </div>
 
 
-<div class="hero-image">
+    <div class="hero-image reveal">
 
-<img
-src="https://i.postimg.cc/wv3h05hb/IMG-20261112-WA0004.jpg"
-alt="Adolescente grávida em ambiente escolar"
->
+      <img
+        src="https://i.postimg.cc/wv3h05hb/IMG-20261112-WA0004.jpg"
+        alt="Imagem educativa sobre gravidez precoce e educação"
+      >
 
-</div>
+    </div>
 
-</section>
+  </div>
+
+</header>
 
 
 <!-- =========================
-     SOBRE
+     PROBLEMA
 ========================= -->
 
-<section id="sobre" class="about">
+<section id="problema">
 
-<div class="section-header">
+  <div class="container">
 
-<div class="tag">
-01 — SOBRE O TEMA
-</div>
+    <div class="section-title reveal">
 
-<h2>
-Informação antes da decisão.
-</h2>
+      <span>
+        O problema
+      </span>
 
-<p>
-A adolescência é uma fase de aprendizagem e construção de projetos
-de vida. A gravidez precoce pode alterar esses planos e criar
-desafios na educação, saúde e vida familiar.
-</p>
+      <h2>
+        Não é apenas uma gravidez.
+      </h2>
 
-</div>
+      <p>
+        Quando acontece cedo, a gravidez pode trazer desafios que
+        ultrapassam a questão da saúde e podem interferir diretamente
+        na educação e nas oportunidades futuras.
+      </p>
 
-
-<div class="cards">
-
-<div class="card">
-
-<div class="icon">
-🤰
-</div>
-
-<h3>
-Gravidez precoce
-</h3>
-
-<p>
-A gravidez durante a adolescência pode trazer mudanças importantes
-na rotina, na saúde, na educação e nos planos para o futuro.
-</p>
-
-</div>
+    </div>
 
 
-<div class="card">
+    <div class="cards">
 
-<div class="icon">
-🎓
-</div>
+      <div class="card reveal">
 
-<h3>
-Abandono escolar
-</h3>
+        <div class="icon">
+          🎓
+        </div>
 
-<p>
-Deixar a escola pode reduzir oportunidades de formação e dificultar
-a construção de um futuro profissional.
-</p>
+        <h3>
+          Educação em risco
+        </h3>
 
-</div>
+        <p>
+          A gravidez pode dificultar a frequência escolar, aumentar
+          as faltas e contribuir para a interrupção dos estudos.
+        </p>
+
+      </div>
 
 
-<div class="card">
+      <div class="card reveal">
 
-<div class="icon">
-🤝
-</div>
+        <div class="icon">
+          🧠
+        </div>
 
-<h3>
-Apoio faz diferença
-</h3>
+        <h3>
+          Pressão emocional
+        </h3>
 
-<p>
-Família, escola, comunidade e serviços de saúde podem ajudar
-adolescentes a enfrentar desafios com informação e respeito.
-</p>
+        <p>
+          Medo, ansiedade, vergonha e pressão social podem tornar
+          esse período ainda mais difícil para a adolescente.
+        </p>
 
-</div>
+      </div>
 
-</div>
+
+      <div class="card reveal">
+
+        <div class="icon">
+          🚀
+        </div>
+
+        <h3>
+          Futuro comprometido
+        </h3>
+
+        <p>
+          Abandonar a escola pode reduzir oportunidades de formação,
+          emprego e independência no futuro.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
@@ -1123,84 +836,88 @@ adolescentes a enfrentar desafios com informação e respeito.
      GALERIA
 ========================= -->
 
-<section id="galeria" class="gallery">
+<section>
 
-<div class="section-header">
+  <div class="container">
 
-<div class="tag">
-02 — REALIDADE
-</div>
+    <div class="section-title reveal">
 
-<h2>
-Uma realidade que precisa ser discutida.
-</h2>
+      <span>
+        Realidade
+      </span>
 
-<p>
-Estas imagens fazem parte do projeto e ajudam a representar
-a relação entre gravidez, maternidade e ambiente escolar.
-</p>
+      <h2>
+        Educação muda destinos.
+      </h2>
 
-</div>
+      <p>
+        Cada adolescente merece informação, apoio, proteção e condições
+        para continuar estudando e construir o próprio futuro.
+      </p>
 
-
-<div class="gallery-grid">
-
-<div class="photo">
-
-<img
-src="https://i.postimg.cc/wv3h05hb/IMG-20261112-WA0004.jpg"
-alt="Gravidez na adolescência"
->
-
-<div class="photo-label">
-Gravidez precoce
-</div>
-
-</div>
+    </div>
 
 
-<div class="photo">
+    <div class="gallery">
 
-<img
-src="https://i.postimg.cc/2jbQWwjb/IMG-20261112-WA0002.jpg"
-alt="Adolescente grávida na sala de aula"
->
+      <div class="gallery-item reveal">
 
-<div class="photo-label">
-Gravidez e escola
-</div>
+        <img
+          src="https://i.postimg.cc/2jbQWwjb/IMG-20261112-WA0002.jpg"
+          alt="Educação e juventude"
+        >
 
-</div>
+        <div class="gallery-caption">
+          Conhecimento gera escolhas.
+        </div>
 
-
-<div class="photo">
-
-<img
-src="https://i.postimg.cc/BQ22YnKQ/IMG-20261112-WA0003.jpg"
-alt="Jovem mãe com bebé"
->
-
-<div class="photo-label">
-Maternidade
-</div>
-
-</div>
+      </div>
 
 
-<div class="photo">
+      <div class="gallery-item reveal">
 
-<img
-src="https://i.postimg.cc/g2d8fbVV/IMG-20261112-WA0001.jpg"
-alt="Jovem mãe com bebé"
->
+        <img
+          src="https://i.postimg.cc/BQ22YnKQ/IMG-20261112-WA0003.jpg"
+          alt="Adolescentes e educação"
+        >
 
-<div class="photo-label">
-Novos desafios
-</div>
+        <div class="gallery-caption">
+          A escola abre caminhos.
+        </div>
 
-</div>
+      </div>
 
-</div>
+
+      <div class="gallery-item reveal">
+
+        <img
+          src="https://i.postimg.cc/g2d8fbVV/IMG-20261112-WA0001.jpg"
+          alt="Juventude e prevenção"
+        >
+
+        <div class="gallery-caption">
+          Informação também é proteção.
+        </div>
+
+      </div>
+
+
+      <div class="gallery-item reveal">
+
+        <img
+          src="https://i.postimg.cc/wv3h05hb/IMG-20261112-WA0004.jpg"
+          alt="Educação e futuro"
+        >
+
+        <div class="gallery-caption">
+          O futuro começa hoje.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
@@ -1209,136 +926,86 @@ Novos desafios
      CAUSAS
 ========================= -->
 
-<section id="causas">
+<section>
 
-<div class="section-header">
+  <div class="container">
 
-<div class="tag">
-03 — CAUSAS
-</div>
+    <div class="section-title reveal">
 
-<h2>
-Por que isso acontece?
-</h2>
+      <span>
+        Por que acontece?
+      </span>
 
-<p>
-Não existe uma única causa. Diferentes fatores podem aumentar
-a vulnerabilidade de adolescentes.
-</p>
+      <h2>
+        Prevenir começa entendendo.
+      </h2>
 
-</div>
+      <p>
+        Existem diferentes fatores envolvidos. Por isso, a prevenção
+        precisa envolver informação, diálogo, apoio familiar e educação.
+      </p>
 
-
-<div class="causes">
-
-<div class="cause">
-
-<div class="cause-icon">
-📚
-</div>
-
-<h3>
-Falta de informação
-</h3>
-
-<p>
-Informação adequada sobre saúde sexual e reprodutiva ajuda
-na tomada de decisões responsáveis.
-</p>
-
-</div>
+    </div>
 
 
-<div class="cause">
+    <div class="cards">
 
-<div class="cause-icon">
-💰
-</div>
+      <div class="card reveal">
 
-<h3>
-Dificuldades económicas
-</h3>
+        <div class="icon">
+          📚
+        </div>
 
-<p>
-A pobreza pode dificultar o acesso à educação, saúde e outros
-serviços essenciais.
-</p>
+        <h3>
+          Falta de informação
+        </h3>
 
-</div>
+        <p>
+          Quando adolescentes não recebem informação adequada, podem
+          ter dificuldade para reconhecer riscos e tomar decisões responsáveis.
+        </p>
 
-
-<div class="cause">
-
-<div class="cause-icon">
-💍
-</div>
-
-<h3>
-Uniões prematuras
-</h3>
-
-<p>
-Uniões precoces podem aumentar o risco de gravidez e dificultar
-a permanência na escola.
-</p>
-
-</div>
+      </div>
 
 
-<div class="cause">
+      <div class="card reveal">
 
-<div class="cause-icon">
-⚠️
-</div>
+        <div class="icon">
+          🏠
+        </div>
 
-<h3>
-Violência e coerção
-</h3>
+        <h3>
+          Falta de diálogo
+        </h3>
 
-<p>
-Situações de violência sexual também podem resultar em gravidez
-e exigem proteção e apoio especializado.
-</p>
+        <p>
+          O silêncio dentro da família pode impedir que dúvidas importantes
+          sejam discutidas de forma segura e responsável.
+        </p>
 
-</div>
-
-
-<div class="cause">
-
-<div class="cause-icon">
-🏫
-</div>
-
-<h3>
-Barreiras escolares
-</h3>
-
-<p>
-Estigma, discriminação e falta de apoio podem dificultar
-a continuidade dos estudos.
-</p>
-
-</div>
+      </div>
 
 
-<div class="cause">
+      <div class="card reveal">
 
-<div class="cause-icon">
-❤️
-</div>
+        <div class="icon">
+          👥
+        </div>
 
-<h3>
-Falta de apoio
-</h3>
+        <h3>
+          Pressão social
+        </h3>
 
-<p>
-Uma rede de apoio pode ajudar adolescentes a enfrentar
-situações difíceis sem isolamento.
-</p>
+        <p>
+          A influência de amigos, parceiros e do ambiente social pode
+          afetar decisões durante a adolescência.
+        </p>
 
-</div>
+      </div>
 
-</div>
+    </div>
+
+  </div>
 
 </section>
 
@@ -1347,98 +1014,84 @@ situações difíceis sem isolamento.
      IMPACTOS
 ========================= -->
 
-<section id="impactos" class="impacts">
+<section id="impactos">
 
-<div class="section-header">
+  <div class="container">
 
-<div class="tag">
-04 — IMPACTOS
-</div>
+    <div class="section-title reveal">
 
-<h2>
-O impacto pode ir muito além da escola.
-</h2>
+      <span>
+        Impactos
+      </span>
 
-<p>
-A gravidez precoce pode afetar diferentes áreas da vida.
-</p>
+      <h2>
+        As consequências podem ser grandes.
+      </h2>
 
-</div>
+      <p>
+        A gravidez precoce pode afetar diferentes áreas da vida e tornar
+        mais difícil a continuidade dos estudos.
+      </p>
 
-
-<div class="impact-grid">
-
-<div class="impact">
-
-<div class="impact-number">
-01
-</div>
-
-<h3>
-Educação
-</h3>
-
-<p>
-Pode dificultar a frequência e a continuidade dos estudos.
-</p>
-
-</div>
+    </div>
 
 
-<div class="impact">
+    <div class="impact">
 
-<div class="impact-number">
-02
-</div>
+      <div class="impact-box reveal">
 
-<h3>
-Saúde
-</h3>
+        <strong>
+          01
+        </strong>
 
-<p>
-A gravidez na adolescência apresenta riscos específicos
-que exigem acompanhamento adequado.
-</p>
+        <span>
+          Interrupção dos estudos
+        </span>
 
-</div>
+      </div>
 
 
-<div class="impact">
+      <div class="impact-box reveal">
 
-<div class="impact-number">
-03
-</div>
+        <strong>
+          02
+        </strong>
 
-<h3>
-Oportunidades
-</h3>
+        <span>
+          Menos oportunidades
+        </span>
 
-<p>
-A interrupção escolar pode limitar oportunidades futuras
-de formação e trabalho.
-</p>
-
-</div>
+      </div>
 
 
-<div class="impact">
+      <div class="impact-box reveal">
 
-<div class="impact-number">
-04
-</div>
+        <strong>
+          03
+        </strong>
 
-<h3>
-Vida familiar
-</h3>
+        <span>
+          Pressão emocional
+        </span>
 
-<p>
-A maternidade precoce pode trazer novas responsabilidades
-e necessidade de maior apoio.
-</p>
+      </div>
 
-</div>
 
-</div>
+      <div class="impact-box reveal">
+
+        <strong>
+          04
+        </strong>
+
+        <span>
+          Desafios familiares
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
@@ -1449,252 +1102,143 @@ e necessidade de maior apoio.
 
 <section id="prevencao">
 
-<div class="section-header">
+  <div class="container">
 
-<div class="tag">
-05 — PREVENÇÃO
-</div>
+    <div class="section-title reveal">
 
-<h2>
-Prevenir começa com informação.
-</h2>
+      <span>
+        Prevenção
+      </span>
 
-<p>
-Educação, diálogo, proteção e acesso a serviços de saúde
-são elementos importantes.
-</p>
+      <h2>
+        Informação é uma ferramenta de proteção.
+      </h2>
 
-</div>
+      <p>
+        Prevenir significa criar condições para que adolescentes tenham
+        conhecimento, apoio e acesso a orientação adequada.
+      </p>
 
-
-<div class="steps">
-
-<div class="step">
-
-<div class="step-number">
-01
-</div>
-
-<div>
-
-<h3>
-Informar
-</h3>
-
-<p>
-Conhecer os riscos, responsabilidades e formas de prevenção
-ajuda na tomada de decisões.
-</p>
-
-</div>
-
-</div>
+    </div>
 
 
-<div class="step">
+    <div class="steps">
 
-<div class="step-number">
-02
-</div>
+      <div class="step reveal">
 
-<div>
+        <div class="number">
+          1
+        </div>
 
-<h3>
-Conversar
-</h3>
+        <h3>
+          Fale sobre o tema
+        </h3>
 
-<p>
-Criar espaços seguros para falar sobre saúde, relacionamentos
-e futuro sem medo de julgamento.
-</p>
+        <p>
+          Conversas abertas e respeitosas ajudam a esclarecer dúvidas
+          e reduzir a desinformação.
+        </p>
 
-</div>
-
-</div>
+      </div>
 
 
-<div class="step">
+      <div class="step reveal">
 
-<div class="step-number">
-03
-</div>
+        <div class="number">
+          2
+        </div>
 
-<div>
+        <h3>
+          Valorize a escola
+        </h3>
 
-<h3>
-Procurar ajuda
-</h3>
+        <p>
+          Permanecer na escola aumenta o acesso ao conhecimento e
+          fortalece as oportunidades futuras.
+        </p>
 
-<p>
-Em caso de dúvidas, procurar profissionais de saúde,
-professores ou adultos de confiança.
-</p>
-
-</div>
-
-</div>
+      </div>
 
 
-<div class="step">
+      <div class="step reveal">
 
-<div class="step-number">
-04
-</div>
+        <div class="number">
+          3
+        </div>
 
-<div>
+        <h3>
+          Procure apoio
+        </h3>
 
-<h3>
-Manter o foco na educação
-</h3>
+        <p>
+          Em caso de dúvidas ou dificuldades, procurar um adulto
+          de confiança ou profissional de saúde pode ajudar.
+        </p>
 
-<p>
-Uma gravidez não precisa significar o fim dos estudos.
-Apoio adequado pode ajudar na permanência ou retorno à escola.
-</p>
+      </div>
 
-</div>
+    </div>
 
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
 <!-- =========================
-     ESCOLA
+     MENSAGEM
 ========================= -->
 
 <section>
 
-<div class="section-header">
+  <div class="container">
 
-<div class="tag">
-06 — EDUCAÇÃO
-</div>
+    <div class="warning reveal">
 
-<h2>
-A escola também é parte da solução.
-</h2>
+      <h2>
+        Não abandone o seu futuro.
+      </h2>
 
-</div>
+      <p>
+        Uma dificuldade no presente não precisa determinar toda a vida.
+        Adolescentes precisam de apoio para permanecer na escola,
+        receber orientação adequada e continuar acreditando nos seus objetivos.
+      </p>
 
+    </div>
 
-<div class="school">
-
-<div class="school-box">
-
-<h3>
-🏫 Uma escola acolhedora
-</h3>
-
-<p>
-A escola pode combater o preconceito, orientar estudantes
-e encaminhar situações que precisam de apoio profissional.
-</p>
-
-</div>
-
-
-<div class="school-box">
-
-<h3>
-🎓 Continuar estudando
-</h3>
-
-<p>
-A maternidade não elimina o potencial de uma estudante.
-Com apoio, organização e políticas adequadas, é possível
-continuar a trajetória educacional.
-</p>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
 <!-- =========================
-     FAQ
+     MENSAGEM FINAL
 ========================= -->
 
-<section id="faq">
+<section>
 
-<div class="section-header">
+  <div class="container">
 
-<div class="tag">
-07 — FAQ
-</div>
+    <div class="section-title reveal">
 
-<h2>
-Perguntas frequentes.
-</h2>
+      <span>
+        Mensagem final
+      </span>
 
-</div>
+      <h2>
+        Escolhas de hoje constroem o amanhã.
+      </h2>
 
+      <p>
+        Combater a gravidez precoce e o abandono escolar exige
+        responsabilidade, educação, diálogo e apoio. Quanto mais
+        informação existe, maiores são as possibilidades de tomar
+        decisões conscientes e proteger o futuro.
+      </p>
 
-<div class="faq">
+    </div>
 
-<details>
-
-<summary>
-A gravidez precoce significa abandonar a escola?
-</summary>
-
-<p>
-Não necessariamente. A gravidez pode criar dificuldades,
-mas apoio familiar, escolar e social pode ajudar a estudante
-a continuar ou retornar aos estudos.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-Quais fatores podem contribuir para a gravidez precoce?
-</summary>
-
-<p>
-Podem existir vários fatores, como falta de informação,
-desigualdade, dificuldades económicas, uniões prematuras,
-pressão social e violência sexual.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-Como a família pode ajudar?
-</summary>
-
-<p>
-Escutar, acolher, evitar julgamentos e procurar ajuda
-profissional quando necessário são atitudes importantes.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-Onde procurar ajuda?
-</summary>
-
-<p>
-Uma unidade de saúde, escola, professor, conselheiro,
-assistente social ou adulto de confiança pode orientar
-sobre os próximos passos.
-</p>
-
-</details>
-
-</div>
+  </div>
 
 </section>
 
@@ -1703,77 +1247,63 @@ sobre os próximos passos.
      CRIADORES
 ========================= -->
 
-<section class="creators">
+<section id="criadores">
 
-<div class="section-header" style="margin-left:auto;margin-right:auto;">
+  <div class="container">
 
-<div class="tag">
-08 — CRIADORES
-</div>
+    <div class="section-title reveal">
 
-<h2>
-Projeto desenvolvido por:
-</h2>
+      <span>
+        Trabalho realizado por
+      </span>
 
-<p>
-Um trabalho educativo de conscientização sobre gravidez precoce
-e abandono escolar.
-</p>
+      <h2>
+        Os Criadores
+      </h2>
 
-</div>
+      <p>
+        Projeto educativo desenvolvido para promover informação,
+        prevenção e valorização da educação.
+      </p>
 
-
-<div class="creator-list">
-
-<div class="creator">
-Helana da Silvia
-</div>
-
-<div class="creator">
-Karlin
-</div>
-
-<div class="creator">
-Marta Cantido
-</div>
-
-<div class="creator">
-Leonor Elias
-</div>
-
-<div class="creator">
-Leticia Manjate
-</div>
-
-</div>
-
-</section>
+    </div>
 
 
-<!-- =========================
-     CTA
-========================= -->
+    <div class="creators reveal">
 
-<section class="cta">
+      <div class="creator">
+        <strong>Eucleria Macave</strong>
+        <span>nº 16</span>
+      </div>
 
-<div class="tag">
-09 — MENSAGEM FINAL
-</div>
+      <div class="creator">
+        <strong>Helana da Silvia</strong>
+        <span>nº 25</span>
+      </div>
 
-<h2>
-Conhecimento protege.
-Educação transforma.
-</h2>
+      <div class="creator">
+        <strong>Karlin Ronane</strong>
+        <span>nº 34</span>
+      </div>
 
-<p>
-Falar sobre gravidez precoce não é julgar.
-É informar, prevenir, proteger e criar oportunidades
-para que cada adolescente possa construir o seu futuro.
-</p>
+      <div class="creator">
+        <strong>Leonor Elias</strong>
+        <span>nº 36</span>
+      </div>
 
-<a href="#sobre" class="btn primary">
-Voltar ao início ↑
-</a>
+      <div class="creator">
+        <strong>Leticia Manjate</strong>
+        <span>nº 38</span>
+      </div>
+
+      <div class="creator">
+        <strong>Marta Candido</strong>
+        <span>nº 43</span>
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
@@ -1784,16 +1314,66 @@ Voltar ao início ↑
 
 <footer>
 
-<p>
-<strong>Juventude.</strong>
-Educação • Saúde • Prevenção • Futuro
-</p>
+  © 2026 • Gravidez Precoce & Abandono Escolar
 
-<p style="margin-top:10px;">
-Projeto educativo — 2026
-</p>
+  <br>
+
+  Projeto educativo • Informação • Prevenção • Educação
+
+  <br><br>
+
+  <strong>
+    Criadores:
+    Eucleria Macave nº 16 •
+    Helana da Silvia nº 25 •
+    Karlin Ronane nº 34 •
+    Leonor Elias nº 36 •
+    Leticia Manjate nº 38 •
+    Marta Candido nº 43
+  </strong>
 
 </footer>
 
+
+<!-- =========================
+     ANIMAÇÕES
+========================= -->
+
+<script>
+
+  const reveals = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver(
+
+    (entries) => {
+
+      entries.forEach((entry) => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add("active");
+
+        }
+
+      });
+
+    },
+
+    {
+      threshold: 0.12
+    }
+
+  );
+
+
+  reveals.forEach((element) => {
+
+    observer.observe(element);
+
+  });
+
+</script>
+
 </body>
 </html>
+
